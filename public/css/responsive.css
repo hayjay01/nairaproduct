@@ -1,0 +1,146 @@
+@media (max-width: 991px) {
+  /* all padding-left reduced*/
+  .p-l-100{
+      padding-left: 15px !important;
+      padding-right: 15px;
+  }
+
+  .navbar-toggle{
+    font-size: 20px !important;
+    color: rgba(61, 178, 6, 1) !important;
+    font-weight: bold;
+  }
+
+  .navbar-default .navbar-toggle {
+     border: none !important;
+  }
+
+  .navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: transparent !important;
+    background: transparent !important;
+   }
+
+  .navbar-toggle:first-child{
+    float: left;
+    margin-left: 20px;
+  }
+  .navbar-toggle{
+    margin-right: 20px;
+  }
+
+  nav.navbar .container-fluid{
+      padding-left: 0px !important;
+      padding-right: 0px !important; 
+  }
+
+ .left_sidebar .navbar-nav {
+    margin: 0px; 
+    font-size: 18px;
+  }
+
+  .left_sidebar .nav .open>a, .left_sidebar .nav .open>a:focus,
+  .left_sidebar .nav .open>a:hover {
+      background-color: transparent;
+      border: none;
+      color: #00A2D9 !important;
+  }
+
+  .contents h1{
+      font-size: 22px;
+      line-height: 25px;
+  }
+  .query .form-control.search {
+    height: 60px;
+    font-size: 14px;
+  }
+
+  ul.suggestions li{
+      font-size: 10px;
+  }
+
+  aside.sidebar {
+    width: 100%;
+    min-height: calc(100% - 62px);
+    top:62px;
+ }
+ /*.navbar-nav>li:nth-child(2) {
+    display: none;
+}*/
+.progressContainer {
+   height: auto !important;
+}
+.wizard .nav-tabs > li a{
+  text-align: center;
+  font-size: 10px;
+}
+.wizard .nav-tabs > li {
+    padding-top: 5px;
+}
+
+.wizard .badge {
+   display: block;
+   margin: 0px auto;
+ }
+
+ .card .header {
+    padding: 10px 10px 0;
+ }
+
+ .card .content {
+    padding: 30px 10px 20px 10px;
+ }
+
+ #right_sidebar h4{
+   font-size: 14px;
+ }
+
+ #right_sidebar .col-xs-3.p-l-0{
+   padding-right: 0px;
+ }
+
+ #loader{
+   display: flex;
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+ }
+
+ .page-container{
+   padding: 0px;
+ }
+
+ .page-content-wrapper .p-l-40{
+   padding-left: 0px !important;
+ }
+
+ .alert h4 {
+    font-size: 12px;
+ }
+
+}
+
+@media (min-width: 992px) {
+  .table>tbody>tr>td{
+    vertical-align: inherit !important;
+  }
+
+  #loader{
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    z-index: 10000;
+    display: none;
+  }
+
+  #loader img{
+    width: 150px;
+    margin: 124px auto;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+}
