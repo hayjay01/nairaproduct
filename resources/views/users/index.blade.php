@@ -16,14 +16,19 @@
                 </center>
     				<div class="ms s-m-w">
                         
-    					<div class="input-group">
                            
-
-    				     <input type="text" class="form-control" placeholder="Quick search a product or service">
-    				     <span class="input-group-btn">
-    				       <a href="/search" class="btn btn-default" id="discover" type="button">Search</a>
-    				     </span>
-    					</div> 
+                        <form method="POST" action="/search">
+                           
+                            <div class="input-group">
+                                {{ csrf_field() }}
+                                <input type="text" name="search" class="form-control" placeholder="Quick search a product or service">
+                                <span class="input-group-btn">
+                                <input type="submit" class="btn btn-default" id="discover" value="Search"/>
+                                </span>
+                            </div> 
+                            
+                        </form>
+    				     
     					<!-- /input-group -->
     					<center class="text-center" style="font-size: 14px; "><span style="color: #d9534f">...discover nigeria authentic products and services place. </span>  <br> <br></center>
     				</div>
@@ -67,11 +72,11 @@
                                <a href="https://www.facebook.com/nairaproducts" target="_blank"> <img src="{{asset('images/f.PNG')}}" style=" height:30px;"  class="img img-responsive img-rounded"> </a>              
                     </div>
                     <div class="col-lg-2 col-xs-3">
-                               <a href="https://www.twitter.com/nairaproducts" target="_blank"> <img src="{{asset('images/i.jpg')}}" style=" height:30px;" class="img img-responsive img-rounded"> </a>               
+                               <a href="https://www.instagram.com/nairaproducts" target="_blank"> <img src="{{asset('images/i.jpg')}}" style=" height:30px;" class="img img-responsive img-rounded"> </a>               
                                                 
                     </div>
                     <div class="col-lg-2 col-xs-3">
-                             <a href="">  <img src="{{asset('images/t.png')}}" style=" height:30px;"  class="img img-responsive img-rounded"> </a>
+                             <a href="https://www.twitter.com/nairaproducts" target="_blank">  <img src="{{asset('images/t.png')}}" style=" height:30px;"  class="img img-responsive img-rounded"> </a>
                     </div>
                      {{--  <div class="col-lg-2 col-xs-3">  --}}
                                {{--  <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                   --}}
