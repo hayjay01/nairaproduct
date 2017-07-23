@@ -213,6 +213,7 @@ class AdminController extends Controller
         'product_image' => $product->product_image,
         'created_at' => $product->created_at,
         'updated_at' => $product->updated_at,
+		'reference' => $product->reference
         ];
 
 

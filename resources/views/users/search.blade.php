@@ -16,7 +16,7 @@
 							<p>
 								<center> 
 									<a href="{{url('/product/each_product', $product->id)}}">
-										<img class="img img-responsive img-thumbnail" style="height:220px; width:200px"; src="{{asset("products_image/$product->product_image")}}">
+										<img class="img img-responsive img-thumbnail" style="height:100%; width:100%"; src="{{asset("products_image/$product->product_image")}}">
 									</a>
 
 								</center>

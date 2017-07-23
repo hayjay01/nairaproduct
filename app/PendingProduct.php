@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PendingProduct extends Model
 {
 	protected $fillable = [
-        'user_id', 'product_name', 'product_category', 'product_description', 'product_image'
+        'user_id', 'product_name', 'product_category', 'product_description', 'product_image', 'reference'
     ];
 	
 	public function productReview()

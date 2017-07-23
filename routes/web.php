@@ -55,7 +55,7 @@ Route::get('/service/add_service', ['uses' => 'ServiceController@service']);
 
 Route::group(['middleware' => 'auth'], function() {
 		Route::group(['prefix' => 'product'], function() {
-		Route::get('/each_product/{id}', ['uses' => 'ProductController@each_product']);
+		Route::get('/{product_name}/{id}', ['uses' => 'ProductController@each_product']);
 		Route::match(['get', 'post'], '/review/{product_id}', ['uses' => 'ReviewsController@productReview']);
 		Route::post('/add_product', ['uses' => 'ProductController@product']);
 		});

@@ -57,17 +57,11 @@ class ProductController extends Controller
 	    			    'product_name' => $request->input('product_name'),
 	    			    'product_description' => $request->input('product_description'),
 	    			    'product_category' => $request->input('product_category'),
+						'reference' => time() . str_random(7) . uniqid(),
 	    				'product_image' => $rand_num.$file->getClientOriginalName()
 	    			]);
+					// dd($product);
 	    			$file->move("products_image/", $product->product_image);
-	    			// dd($a);
-	    			// $filename = $request->file('product_image')->getClientOriginalName();
-        //             // dd($filename);
-        //             $img_ext = ['.jpg', '.jpeg', '.PNG', '.png', '.svg', '.gif'];
-        //             $filename = str_replace($img_ext, '', $filename);
-        //             // dd($filename);
-    	   //         $save  = \Storage::disk('custom')->put($filename, $request->file('product_image'));
-    	   //        // dd($save);
 	    			$product->save();
 			        Session::flash('flash_message', 'Product successfully added!');
 			        return redirect('/search')->with('success', 'Product Added Successfully as it await acceptance from the admin, check back in a Jiffy!');
