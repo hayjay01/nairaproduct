@@ -60,5 +60,24 @@
                 </div> <br/>
                    
             </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-4 col-xs-8 col-xs-offset-3">
+                    
+                    <div class="col-lg-2 col-xs-3">
+                               <img src="{{asset('images/f.PNG')}}" style=" height:30px;"  class="img img-responsive img-rounded">                 
+                    </div>
+                    <div class="col-lg-2 col-xs-3">
+                               <img src="{{asset('images/i.jpg')}}" style=" height:30px;" class="img img-responsive img-rounded">                 
+                                                
+                    </div>
+                    <div class="col-lg-2 col-xs-3">
+                               <img src="{{asset('images/t.png')}}" style=" height:30px;"  class="img img-responsive img-rounded">
+                    </div>
+                     {{--  <div class="col-lg-2 col-xs-3">  --}}
+                               {{--  <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                   --}}
+                    {{--  </div>   --}}
+                </div> <br/>
+                   
+            </div>
 		</div>
 	@endsection

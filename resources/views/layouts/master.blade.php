@@ -69,12 +69,8 @@
 	
 </div>
 @yield('body')
-	<div class="col-lg-1 col-lg-offset-10">
-		{{--  <span class="pull-right "> <i class="fa fa-facebook" aria-hidden="true"></i> <i class="fa fa-facebook" aria-hidden="true"></i> <i class="fa fa-facebook" aria-hidden="true"></i> </span>   --}}
-									<a href="/redirect" class="btn btn-primary "><span class="font img img-circle">F</span></a>
-									{{--  <button type="button" class="btn btn-default"><span style="color: red;" class="font">F</span></button>  --}}
 
-	</div>
+	  
  
 {{-- <div>
 	<center style="margin-top:5%;  color: red;">
@@ -83,6 +79,7 @@
 		</span>
 	</center>
 </div> --}}
+
 <script type="text/javascript" src="{{ asset('/js/jquery.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/main.js') }}"></script>
