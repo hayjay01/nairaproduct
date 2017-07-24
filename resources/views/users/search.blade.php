@@ -14,11 +14,11 @@
 							<hr>
 
 							<p>
+							<?php $p_name = str_replace(" ","-",$product->product_name); ; ?>
 								<center> 
-									<a href="{{url('/product/each_product', $product->id)}}">
+									<a href="{{url($p_name, $product->reference)}}">
 										<img class="img img-responsive img-thumbnail" style="height:100%; width:100%"; src="{{asset("products_image/$product->product_image")}}">
 									</a>
-
 								</center>
 							</p>
 							
@@ -26,7 +26,7 @@
 								<center>
 									<span> <b class="">Desciprtion</b>:{{ str_limit(strip_tags($product->product_description), 50) }} <br> 
                                         @if (strlen(strip_tags($product->product_description)) > 50)
-                                          <a id="link" href="{{url('/product/each_product', $product->id)}}">...Read More</a> </br>
+                                          <a id="link" href="{{url($p_name, $product->reference)}}">...Read More</a> </br>
                                         @endif
                                     </span>
 								

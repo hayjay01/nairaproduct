@@ -79,13 +79,11 @@ class ProductController extends Controller
 	    	}
 	    }
 	
-	public function each_product($id)
+	public function each_product($product_name, $reference)
 	{
-		$product = Product::with('productReview')->findOrFail($id);
+		// dd("jm");
+		$product = Product::with('productReview')->where('reference', $reference)->firstOrFail();
+		// dd($product);
 		return view('users.each_product', compact('product'));
-
-		 // Post::with( ['comments' => function($c){ //perfectly orking fine! it solves all comments withing a post descending order
-   //              $c->latest()->limit(5)->get() ;
-   //          } ])->where('status', 'publish');
 	}
 }

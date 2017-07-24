@@ -9,7 +9,7 @@ use Auth;
 
 class ReviewsController extends Controller
 {
-    public function productReview(Request $request, $product_id)
+    public function productReview(Request $request, $product_id, $product_name)
     {
     	$method = $request->isMethod('post');
     	switch ($method) {

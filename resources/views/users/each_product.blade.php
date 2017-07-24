@@ -47,40 +47,10 @@
 				</div>
 						
 				</div>
-				<!--<div class="col-lg-5 col-xs-12 col-sm-12 col-lg-offset-1">-->
-				<!--		<div class="thumbnail">-->
-				<!--		<img data-src="#" alt="" style="">-->
-				<!--		<div class="caption">-->
-				<!--			<span class="product_name_color">Product Name:</span> {{$product->product_name}}<br>-->
-				<!--			<span class="product_name_color">Category: </span> {{$product->productCategory->name}}-->
-				<!--			<hr>-->
-
-				<!--			<p>-->
-				<!--				<center> -->
-									
-				<!--					<img class="img img-responsive img-thumbnail" style="height:220px; width:200px"; src="{{asset("products_image/$product->product_image")}}">-->
-
-				<!--				</center>-->
-				<!--			</p>-->
-							
-				<!--			<p>-->
-				<!--				<center>-->
-				<!--					<span> <b class="">Desciprtion</b>:{{$product->product_description}}-->
-    <!--                                </span>  </br>-->
-								
-				<!--					<a href="#textarea" class="btn btn-sm btn-default">Review</a>-->
-																		
-				<!--					<a type="button" href="" class="btn btn-sm btn-default"> {{count($product->productReview)}} users reviewed this</a>-->
-				<!--				</center>-->
-				<!--			</p>-->
-							
-				<!--		</div>-->
-				<!--</div>-->
-				<!--</div>-->
-
 					<div class="col-sm-6"  >
 						<center>
-							<form method="post" action="/product/review/{{$product->id}}">
+						 <?php $p_name = str_replace(" ","-",$product->product_name) ?> 
+							<form method="post" action="/product/review,{{$p_name}}, {{$product->id}}">
 								{{csrf_field()}}
 								<div class="form-group">
 									<center>

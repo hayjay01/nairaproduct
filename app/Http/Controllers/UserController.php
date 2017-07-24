@@ -59,12 +59,12 @@ class UserController extends Controller
                             'firstname' => 'required', 
                             'email' => 'required|',
                             'password' => 'required|min:4',
-                            'phone' => 'required',
-                            'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048' 
+                            'phone' => 'required'
+                            // 'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048' 
                         ]);
                 $file = $request->file('picture');
                $rand_num = rand(1000000, 10000000);
-
+                                                                                                                                
                 $user = new User([
                   'firstname' => $request->input('firstname'),
                   'password' => Hash::make($request->input('password')),
