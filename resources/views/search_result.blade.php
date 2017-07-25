@@ -15,7 +15,7 @@
 
 							<p>
 								<center> 
-								 <?php $p_name = str_replace(" ","-",$product->product_name) ?> 
+								 <?php $p_name = str_replace(" ","-",$product->product_name); ?> 
 									<a href="{{ route('view', [$p_name, $product->reference] )}}">
 										<img class="img img-responsive img-thumbnail" style="height:220px; width:200px"; src="{{asset("products_image/$product->product_image")}}">
 									</a>

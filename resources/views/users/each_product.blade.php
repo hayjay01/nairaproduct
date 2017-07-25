@@ -49,8 +49,8 @@
 				</div>
 					<div class="col-sm-6"  >
 						<center>
-						 <?php $p_name = str_replace(" ","-",$product->product_name) ?> 
-							<form method="post" action="/product/review,{{$p_name}}, {{$product->id}}">
+						 <?php $p_name = str_replace(" ","-",$product->product_name); ?> 
+							<form method="post" action="{{route('review', [$p_name, $product->id])}}">
 								{{csrf_field()}}
 								<div class="form-group">
 									<center>
