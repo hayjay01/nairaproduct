@@ -50,7 +50,7 @@
 					<div class="col-sm-6"  >
 						<center>
 						 <?php $p_name = str_replace(" ","-",$product->product_name); ?> 
-							<form method="post" action="{{route('review', [$p_name, $product->id])}}">
+							<form method="post" action="{{route('review', [ $product->id, $p_name])}}">
 								{{csrf_field()}}
 								<div class="form-group">
 									<center>
