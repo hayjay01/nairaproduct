@@ -113,7 +113,8 @@
 					</div>
 					<div class="modal-body">
 							<center>
-							<form method="post" action="/product/review/{{$reviews->id}}">
+							<?php $p_name = str_replace(" ","-",$reviews->product_name); ?> 
+							<form method="post" action="{{route('review', [ $reviews->id, $p_name])}}">
 								{{csrf_field()}}
 								<div class="form-group" >
 									<center>

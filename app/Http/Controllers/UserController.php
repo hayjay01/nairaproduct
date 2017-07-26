@@ -129,5 +129,11 @@ class UserController extends Controller
           return view('users/index');
         }
 
+        public function contactUs()
+        {
+          dd("k");
+          return view('users.contact');
+        }
+
 
 }

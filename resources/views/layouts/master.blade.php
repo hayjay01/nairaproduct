@@ -39,6 +39,7 @@
 					<li>
 						<a href="{{url('/product/add_product')}}">Add a Product</a>
 					</li>
+
 						<li class="dropdown">
 							@if(Auth::check())
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Hi, {{$firstname}}...<b class="caret"></b></a>
@@ -54,6 +55,9 @@
 								</ul>
 							@endif
 						</li>
+					<li>
+						<a href="{{url('users/contact-us')}}" style="color: #ffffff;">Contact <i class="fa fa-phone" aria-hidden="true"></i> <i class="fa-li fa fa-spinner fa-spin"></i></a>
+					</li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div>

@@ -38,6 +38,10 @@ Route::get('/', function() {
     return view('users.index');
 });
 
+Route::get('users/contact-us', function(){
+	return view('users.contact');
+});
+
 Route::get('redirect', ['uses' => 'SocialAuthController@redirect']);
 
 Route::get('callback', ['uses' => 'SocialAuthController@callback']);
@@ -66,6 +70,7 @@ Route::group(['middleware' => 'auth'], function() {
 		Route::post('/service/add_service', ['uses' => 'ServiceController@service']);   
 		Route::get('/logout', ['uses' => 'UserController@logout']);
 });
+
 
 
 
