@@ -23,6 +23,11 @@
 					<li style="margin-top: 10px;" >
 						<a class="grey" href="/admin/category" data-toggle="modal"  > <i class="fa fa-plus"></i> Create Category</a>
 					</li>
+
+					<li style="margin-top: 10px;" >
+						<a class="grey" href="/admin/featured-product" data-toggle="modal"  > <i class="fa fa-plus"></i> New Featured Product</a>
+					</li>
+
 					<li style="margin-top: 10px;">
 						<a href="{{url('/admin/create')}}" class="grey"> <i class="fa fa-dashboard"></i> Manage Admins</a>
 					</li>

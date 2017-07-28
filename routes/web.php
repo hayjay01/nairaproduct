@@ -26,11 +26,12 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::get('add/product/{id}', 'AdminController@addProduct');
 	    Route::get('del/product/{id}', 'AdminController@delProduct');
 	    Route::get('del/pendingProduct/{id}', 'AdminController@delPendingProduct');
-
+	    Route::match(['get', 'post' ], '/featured-product', 'AdminController@featuredProduct');
 	    Route::get('/products', 'AdminController@product');
 	    Route::post('/products', ['uses' => 'AdminController@searchProduct']);
 
 	});
+
 });
 
 

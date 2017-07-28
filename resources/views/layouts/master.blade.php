@@ -39,6 +39,9 @@
 					<li>
 						<a href="{{url('/product/add_product')}}">Add a Product</a>
 					</li>
+					<li>
+						<a href="{{url('/users/contact-us')}}">Contact  <i class="fa fa-phone" aria-hidden="true"></i>  </a>
+					</li>
 
 						<li class="dropdown">
 							@if(Auth::check())
@@ -55,10 +58,11 @@
 								</ul>
 							@endif
 						</li>
-					<li>
-						<a href="{{url('users/contact-us')}}" style="color: #ffffff;">Contact <i class="fa fa-phone" aria-hidden="true"></i> <i class="fa-li fa fa-spinner fa-spin"></i></a>
-					</li>
+					{{-- <li>
+						<a href="{{url('users/contact-us')}}" style="color: #5cb85c;">Contact <i class="fa fa-phone" aria-hidden="true"></i> <i class="fa-li fa fa-spinner fa-spin"></i></a>
+					</li> --}}
 				</ul>
+				
 			</div><!-- /.navbar-collapse -->
 		</div>
 	</nav>

@@ -10,6 +10,8 @@ use App\Product;
 use App\Product_categories;
 use App\ProductReview;
 use App\PendingProduct;
+use App\FeaturedProduct;
+
 
 //LASAMI 
 
@@ -258,6 +260,34 @@ class AdminController extends Controller
         // $this->validate($request, $data);
         $product->update($data);
         return back()->with('success', 'Product Updated Successfully! you can now publish');
+    }
+
+    public function featuredProduct(Request $request)
+    {
+        $user_count = User::join('roles', 'users.role_id', 'roles.id')
+                    ->where('roles.name', 'User')->count();
+        $all_category = Product_categories::all();
+        $reviews = ProductReview::count();
+        $products = Product::count();
+        $categories = Product_categories::count();
+        $pending_products = PendingProduct::with(['User', 'productCategory'])->paginate(10);
+        // dd($all_category);
+        $pending_products_num = $pending_products->count();
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+
+                $requesData = $request->all();
+                dd($requestData);
+                break;
+                $featured = FeaturedProduct::all();
+            case false:
+
+                return view('admin.featured_product', compact('featured', 'user_count', 'all_category', 'reviews', 'products', 'categories', 'pending_products', 'pending_products_num'));
+            default:
+                # code...
+                break;
+        }
     }
 
 
