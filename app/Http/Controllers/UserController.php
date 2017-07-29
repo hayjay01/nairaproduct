@@ -8,13 +8,15 @@ use Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Product;
 use App\ProductReview;
-
+use App\FeaturedProduct;
 use App\Service;
 
 
 
 class UserController extends Controller
 {
+
+
 	public function searchProductOrService(Request $request)
 	{
     $perPage = 12;
@@ -135,5 +137,11 @@ class UserController extends Controller
           return view('users.contact');
         }
 
+        public function index()
+        {
+          $featured_product = FeaturedProduct::simplePaginate(4);
+          // dd($featured_product);
+          return view('users.index', compact('featured_product'));
+        }
 
 }

@@ -1,15 +1,29 @@
 @extends('layouts.dashboard')
 	@section('content')
 		<div class="row well">
-			<div class="col-lg-4">
+			<div class="col-lg-6">
 				<div class="table-responsive">
 					<table class="table table-hover table-bordered">
 						<thead>
 							<tr>
-								<th>ID</th>
-								<th>Product  Name</th>
-								<th>Description</th>
-								<th>Image</th>
+								<th><center>
+									S/N
+								</center></th>
+								<th> <center>
+									Product name
+								</center></th>
+								<th>
+									Product image
+								</th>
+								<th>
+									<center>
+										Product Url
+									</center>
+								</th>
+								{{-- <th>Edit</th> --}}
+								<th>Delete</th>
+
+
 
 
 							</tr>
@@ -19,8 +33,13 @@
 							@foreach($featured as $product)
 								<tr>
 									<td>{{$num++}}</td>
-									<td>{{$product->product_name}}</td>
-									<td>{{$category->product_description}}</td>
+									<td> <a href="{{$product->link}}" style="color: #222;" target="_blank">{{$product->product_name}}</a> </td>
+									<td> <img  width="50px;" src="{{asset("product_images/$product->image")}}">  </td>
+									<td> <a href="{{$product->link}}" target="_blank">{{$product->link}}</a> </td>
+									{{-- <td> <a href=""><span style="color: #5cb85c" class="fa fa-edit">  </span> </a></td> --}}
+									
+									<td> <a onclick="ConfirmDelete();" id="a_del" href="{{url('admin/delete/featured-product', $product->id)}}"><span style="color: #5cb85c;" class="fa fa-trash">  </span> </a></td>
+
 
 								</tr>
 							@endforeach
@@ -31,7 +50,7 @@
 				</div>
 			</div>
 			<div class="col-lg-4  col-lg-offset-1">
-				@if (session('success'))
+				{{-- @if (session('success'))
                                 <div class="alert alert-success">
                                     <center>
                                     	{{ session('success') }} <i class="fa fa-ok" aria-hidden="true"></i>
@@ -43,9 +62,9 @@
                                     {{ session('delete_message')  }} <i class="fa fa-arrow-down" aria-hidden="true"></i>	
                                   </center>
                                  </div>
-                @endif
+                @endif --}}
 				<center>
-					<form action=""  method="POST" class="form-horizontal" role="form">
+					<form action="{{url('admin/add/featured-product')}}"  method="POST" enctype='multipart/form-data' class="form-horizontal" role="form">
 							{{csrf_field()}}
 							<div class="form-group">
 								<center>
@@ -59,18 +78,19 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="input" class=" control-label">Description:</label>
+								<label for="input" class=" control-label">Image:</label>
 								<div class="">
-									<textarea type="text" name="product_description" id="input" class="form-control" value="" required="required" title=""> </textarea>
+									<input type="file" placeholder="something" onchange="readURL(this);" name="product_image" id="input" class="form-control" value="" required="required">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="input" class=" control-label">Link to the Product:</label>
+								<div class="">
+									<input type="url" placeholder="product link goes here.. informat: https://www.nairaproduct.ng/splendy" name="link" id="input" class="form-control" value="" required="required">
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="input" class=" control-label">Image:</label>
-								<div class="">
-									<textarea type="file" name="product_image" id="input" class="form-control" value="" required="required" title=""> </textarea>
-								</div>
-							</div>
+
 							<div class="form-group">
 								<div class="">
 									<button type="submit" class="btn btn-default">Submit</button>

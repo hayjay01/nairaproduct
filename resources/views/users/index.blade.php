@@ -4,6 +4,22 @@
 	@endsection
 
 	@section('content')
+        <style type="text/css">
+            .pagination > li > a,
+            .pagination > li > span {
+                color: green; // use your own color here
+            }
+
+            .pagination > .active > a,
+            .pagination > .active > a:focus,
+            .pagination > .active > a:hover,
+            .pagination > .active > span,
+            .pagination > .active > span:focus,
+            .pagination > .active > span:hover {
+                background-color: green;
+                border-color: green;
+            }        
+        </style>
          <center>
                    
         </center> <br>
@@ -47,12 +63,19 @@
                         FEATURED PRODUCTS AND SERVICES
                     </b> <br> <br>
                 </center>
-                <div class="col-lg-8 col-lg-offset-3 col-xs-12">
-                    
-                    <div class="col-lg-2 col-xs-3">
-                               <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                 
-                    </div>
-                    <div class="col-lg-2 col-xs-3">
+                <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+                    @foreach($featured_product as $product_image)
+                        <div class="col-lg-3 col-xs-3">
+                                   <a href="{{$product_image->link}}" target="_blank">
+                                       <img src="{{asset("product_images/product_image->image")}}" class="img img-responsive img-rounded">
+                                   </a>                 
+                        </div>
+                    @endforeach
+                    <center>
+                        {{$featured_product->links()}}
+                    </center>
+                   
+                    {{-- <div class="col-lg-2 col-xs-3">
                                <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                 
                                                 
                     </div>
@@ -61,7 +84,8 @@
                     </div>
                     <div class="col-lg-2 col-xs-3">
                                <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                 
-                    </div>
+                    </div> --}}
+                    
                 </div> <br/>
                    
             </div> <br> 
@@ -84,5 +108,6 @@
                 </div> <br/>
                    
             </div>
+
 		</div>
 	@endsection

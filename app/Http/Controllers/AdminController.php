@@ -262,7 +262,7 @@ class AdminController extends Controller
         return back()->with('success', 'Product Updated Successfully! you can now publish');
     }
 
-    public function featuredProduct(Request $request)
+    public function getFeaturedProduct(Request $request)
     {
         $user_count = User::join('roles', 'users.role_id', 'roles.id')
                     ->where('roles.name', 'User')->count();
@@ -274,21 +274,46 @@ class AdminController extends Controller
         // dd($all_category);
         $pending_products_num = $pending_products->count();
         $method = $request->isMethod('post');
-        switch ($method) {
-            case true:
+        $featured = FeaturedProduct::all();
 
-                $requesData = $request->all();
-                dd($requestData);
-                break;
-                $featured = FeaturedProduct::all();
-            case false:
-
-                return view('admin.featured_product', compact('featured', 'user_count', 'all_category', 'reviews', 'products', 'categories', 'pending_products', 'pending_products_num'));
-            default:
-                # code...
-                break;
-        }
+        return view('admin.featured_product', compact('featured', 'user_count', 'all_category', 'reviews', 'products', 'categories', 'pending_products', 'pending_products_num'));
+           
+        
     }
 
+    public function addFeaturedProduct(Request $request)
+    {
+        # code...
+         $rand_num = rand(1000000, 10000000);
+                $file = $request->file('product_image');
+                // dd($file);
+                $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
+                $requestData['image'] =  $rand_num.$file->getClientOriginalName();
+
+                $filename = str_replace($img_ext, '', $requestData['image']);
+                // dd($filename);
+                $store  = \Storage::disk('custom')->put($filename, $request->file('product_image'));
+                // dd($store);
+                // $requestData = $request->all();
+                    $requestData = new FeaturedProduct([
+                        // 'user_id' => Auth::user()->id,
+                        'product_name' => $request->input('product_name'),
+                        'link' => $request->link,
+                        'image' => $store
+                    ]);
+                // dd($requestData);
+                $requestData->save();
+                return back()->with('success', 'New Featured Product Added.');
+
+                // dd($requ/estData);
+    }
+
+    public function deleteFeaturedProduct($id)
+    {
+        $product = FeaturedProduct::findOrFail($id);
+        $product->delete();        
+        return back()->with(['delete_message' => 'Product Trashed Successfully!']);
+        // $dd($product);
+    }
 
 }

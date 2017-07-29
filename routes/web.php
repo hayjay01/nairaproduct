@@ -26,18 +26,22 @@ Route::group(['middleware' => 'admin'], function() {
 	    Route::get('add/product/{id}', 'AdminController@addProduct');
 	    Route::get('del/product/{id}', 'AdminController@delProduct');
 	    Route::get('del/pendingProduct/{id}', 'AdminController@delPendingProduct');
-	    Route::match(['get', 'post' ], '/featured-product', 'AdminController@featuredProduct');
+	    // Route::match(['get', 'post' ], '/featured-product', 'AdminController@featuredProduct');
+	    Route::get('/featured-product', 'AdminController@getFeaturedProduct');
+	    Route::post('/add/featured-product', 'AdminController@addFeaturedProduct');
+
 	    Route::get('/products', 'AdminController@product');
 	    Route::post('/products', ['uses' => 'AdminController@searchProduct']);
+	    Route::get('/delete/featured-product/{id}', 'AdminController@deleteFeaturedProduct')->name('del-featured');
+	    // Route::post('/del/featured_product/{id}', ['uses' => 'AdminController@deleteFeaturedProduct']);
 
 	});
 
 });
 
 
-Route::get('/', function() {
-    return view('users.index');
-});
+Route::get('/', 'UserController@index');
+
 
 Route::get('users/contact-us', function(){
 	return view('users.contact');
