@@ -35,6 +35,11 @@ function lz_getip(){
 		$ip = $_SERVER["HTTP_CLIENT_IP"];
 	}
 	
+	// Hacking fix for X-Forwarded-For
+	if(!lz_valid_ip($ip)){
+		return '';
+	}
+	
 	return $ip;
 	
 }

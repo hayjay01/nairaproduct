@@ -71,14 +71,14 @@ class UserController extends Controller
                   'firstname' => $request->input('firstname'),
                   'password' => Hash::make($request->input('password')),
                   'email' => $request->input('email'),
-                  'phone' => $request->input('phone'),
-                  'picture' => $rand_num.$file->getClientOriginalName()
+                  'phone' => $request->input('phone')
+                //   'picture' => $rand_num.$file->getClientOriginalName()
                
                ]);
                
 
                // dd($user->picture);exit;
-               $file->move("users_image/", $user->picture);
+            //   $file->move("users_image/", $user->picture);
                $user->save();
                Auth::login($user);
                   return redirect('product/add_product')->with(['success'=>'Hello '.ucfirst($user->firstname).', Welcome to NairaProduct Add a Product or review what others said about a product before purchasing that very product.']);
@@ -128,7 +128,8 @@ class UserController extends Controller
         public function logout()
         {
           Auth::logout();
-          return view('users/index');
+          $featured_product = FeaturedProduct::simplePaginate(4);
+          return view('users/index', compact('featured_product'));
         }
 
         public function contactUs()

@@ -61,11 +61,10 @@ Route::get('/product/add_product', ['uses' => 'ProductController@product']);
 Route::get('/service/add_service', ['uses' => 'ServiceController@service']);
 
 
-
+		Route::get('/{product_name}/{reference}', ['uses' => 'ProductController@each_product'])->name('view');
 Route::group(['middleware' => 'auth'], function() {
 		
-		
-		Route::get('/{product_name}/{reference}', ['uses' => 'ProductController@each_product'])->name('view');
+
 		Route::group(['prefix' => 'product'], function() {
 		
 		Route::match(['get', 'post'], 'product/review/{product_name}/{product_id}', ['uses' => 'ReviewsController@productReview'])->name('review');

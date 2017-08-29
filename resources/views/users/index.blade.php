@@ -25,7 +25,7 @@
         </center> <br>
 		<div id="index_content">
     		<div class="row">
-    			<div class="col-md-12 p-t-7">
+    			<div class="col-md-12" style="padding-top: 5%;">
                     <center>
                      
                    <img src="{{asset('images/banner_logo.jpg')}}" class="img img-responsive" style="display: inline; font-weight:bold; width:250px; height: 70px;margin-top:-1%;"> <br> <br>
@@ -55,22 +55,31 @@
     				<a href="product/add_product" class="btn btn-success btn-md glyphicon glyphicon-plus"> Add Product </a> 
     				<a href="product/add_product" class="btn btn-success btn-md glyphicon glyphicon-plus"> Add Service </a> 
     			</div>
-    		</div>
-            <div class="row">
-                <br> <br>
-                <center>
-                    <b>
-                        Featured Products & Services
-                    </b> <br> <br>
-                </center>
+    		</div> <br> <br>
+    		
+            <div class="row well" >
+                
+                
+                @if(isset($featured_product))
+    		         <center>
+                        <b>
+                            Featured Products and Services
+                        </b> <br> <br>
+                     </center>
+    	    	
+               
                 <div class="col-lg-8 col-lg-offset-2 col-xs-12">
-                    @foreach($featured_product as $product_image)
+                    @forelse($featured_product as $product_image)
                         <div class="col-lg-3 col-xs-3">
                                    <a style="cursor: pointer;" href="{{$product_image->link}}" target="_blank">
-                                       <img width="80px;" src="{{asset("product_images/$product_image->image")}}" class="img img-responsive img-rounded">
-                                   </a>                 
+                                       <img style="width:60px; height:60px;" src="{{asset("product_images/$product_image->image")}}" class="img img-responsive img-rounded">
+                                   </a>
+                                   <small style="color:#d9534f;">{{$product_image->product_name}}</small>
+                                   
                         </div>
-                    @endforeach
+                    @empty
+                    
+                    @endforelse
                   
                    
                     {{-- <div class="col-lg-2 col-xs-3">
@@ -83,12 +92,14 @@
                     <div class="col-lg-2 col-xs-3">
                                <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                 
                     </div> --}}
-                    
-                </div> <br/>
+                
+                </div>
+                
+                @endif
                    
-            </div> <br> 
+            </div>
                     <center>
-                        {{$featured_product->links()}}
+                        @if(!empty($featured_product)) {{$featured_product->links() }} @endif
                     </center>
                     <center> <b style="color:#5cb85c;"> Connect with us: </b> </center>            
             <div class="row"> 
@@ -106,7 +117,7 @@
                      {{--  <div class="col-lg-2 col-xs-3">  --}}
                                {{--  <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                   --}}
                     {{--  </div>   --}}
-                </div> <br/>
+                </div>
                    
             </div>
 

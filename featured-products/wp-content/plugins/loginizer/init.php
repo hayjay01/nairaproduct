@@ -5,7 +5,7 @@ if(!function_exists('add_action')){
 	exit;
 }
 
-define('LOGINIZER_VERSION', '1.3.5');
+define('LOGINIZER_VERSION', '1.3.6');
 define('LOGINIZER_DIR', WP_PLUGIN_DIR.'/'.basename(dirname(LOGINIZER_FILE)));
 define('LOGINIZER_URL', plugins_url('', LOGINIZER_FILE));
 define('LOGINIZER_PRO_URL', 'https://loginizer.com/features#compare');
@@ -1195,7 +1195,7 @@ function loginizer_page_brute_force(){
 	}
 	
 	// Delete a Blackist IP range
-	if(isset($_GET['bdelid'])){
+	if(isset($_GET['bdelid']) && check_admin_referer('loginizer-options')){
 		
 		$delid = (int) lz_optreq('bdelid');
 		
@@ -1211,7 +1211,7 @@ function loginizer_page_brute_force(){
 	}
 	
 	// Delete a Whitelist IP range
-	if(isset($_GET['delid'])){
+	if(isset($_GET['delid']) && check_admin_referer('loginizer-options')){
 		
 		$delid = (int) lz_optreq('delid');
 		
@@ -1647,6 +1647,41 @@ function loginizer_page_brute_force(){
 	</div>
 	<br />
 	
+<?php
+	
+	wp_enqueue_script('jquery-paginate', LOGINIZER_URL.'/jquery-paginate.js', array('jquery'), '1.10.15');
+	
+?>
+
+<style>
+.page-navigation a {
+margin: 5px 2px;
+display: inline-block;
+padding: 5px 8px;
+color: #0073aa;
+background: #e5e5e5 none repeat scroll 0 0;
+border: 1px solid #ccc;
+text-decoration: none;
+transition-duration: 0.05s;
+transition-property: border, background, color;
+transition-timing-function: ease-in-out;
+}
+ 
+.page-navigation a[data-selected] {
+background-color: #00a0d2;
+color: #fff;
+}
+</style>
+
+<script>
+
+jQuery(document).ready(function(){
+	jQuery('#lz_bl_table').paginate({ limit: 11, navigationWrapper: jQuery('#lz_bl_nav')});
+	jQuery('#lz_wl_table').paginate({ limit: 11, navigationWrapper: jQuery('#lz_wl_nav')});
+});
+
+</script>
+	
 	<div id="" class="postbox">
 	
 		<button class="handlediv button-link" aria-expanded="true" type="button">
@@ -1682,7 +1717,8 @@ function loginizer_page_brute_force(){
 		</form>
 		</div>
 		
-		<table class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
+		<div id="lz_bl_nav" style="margin: 5px 10px; text-align:right"></div>
+		<table id="lz_bl_table" class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
 			<tr>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Start IP','loginizer'); ?></th>
 				<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('End IP','loginizer'); ?></th>
@@ -1758,7 +1794,8 @@ function loginizer_page_brute_force(){
 		</form>
 		</div>
 		
-		<table class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
+		<div id="lz_wl_nav" style="margin: 5px 10px; text-align:right"></div>
+		<table id="lz_wl_table" class="wp-list-table fixed striped users" border="0" width="95%" cellpadding="10" align="center">
 		<tr>
 			<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('Start IP','loginizer'); ?></th>
 			<th scope="row" valign="top" style="background:#EFEFEF;"><?php echo __('End IP','loginizer'); ?></th>

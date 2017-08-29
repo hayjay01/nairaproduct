@@ -9,7 +9,7 @@
 					<div class="thumbnail">
 						<img data-src="#" alt="" style="">
 						<div class="caption">
-							<span class="product_name_color">Product Name:</span> {{$product->product_name}}<br>
+							<span class="product_name_color">Product Name:</span> @if(isset($product->product_name)) {{$product->product_name}} @endif<br>
 							<span class="product_name_color">Category: </span> {{$product->productCategory->name}}
 							<hr>
 
@@ -17,7 +17,7 @@
 								<center> 
 								 <?php $p_name = str_replace(" ","-",$product->product_name); ?> 
 									<a href="{{ route('view', [$p_name, $product->reference] )}}">
-										<img class="img img-responsive img-thumbnail" style="height:220px; width:200px"; src="{{asset("products_image/$product->product_image")}}">
+										<img class="img img-responsive img-thumbnail" style="height:200px; width:200px"; src="{{asset("products_image/$product->product_image")}}">
 									</a>
 
 								</center>

@@ -1,13 +1,13 @@
 <?php
 /**
  * @package loginizer
- * @version 1.3.5
+ * @version 1.3.6
  */
 /*
 Plugin Name: Loginizer
 Plugin URI: http://wordpress.org/extend/plugins/loginizer/
 Description: Loginizer is a WordPress plugin which helps you fight against bruteforce attack by blocking login for the IP after it reaches maximum retries allowed. You can blacklist or whitelist IPs for login using Loginizer.
-Version: 1.3.5
+Version: 1.3.6
 Author: Raj Kothari
 Author URI: http://www.loginizer.com
 License: GPLv3 or later
