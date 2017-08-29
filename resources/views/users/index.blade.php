@@ -60,20 +60,18 @@
                 <br> <br>
                 <center>
                     <b>
-                        FEATURED PRODUCTS AND SERVICES
+                        Featured Products & Services
                     </b> <br> <br>
                 </center>
                 <div class="col-lg-8 col-lg-offset-2 col-xs-12">
                     @foreach($featured_product as $product_image)
                         <div class="col-lg-3 col-xs-3">
-                                   <a href="{{$product_image->link}}" target="_blank">
-                                       <img src="{{asset("product_images/product_image->image")}}" class="img img-responsive img-rounded">
+                                   <a style="cursor: pointer;" href="{{$product_image->link}}" target="_blank">
+                                       <img width="80px;" src="{{asset("product_images/$product_image->image")}}" class="img img-responsive img-rounded">
                                    </a>                 
                         </div>
                     @endforeach
-                    <center>
-                        {{$featured_product->links()}}
-                    </center>
+                  
                    
                     {{-- <div class="col-lg-2 col-xs-3">
                                <img src="{{asset('images/splendy.jpg')}}" class="img img-responsive img-rounded">                 
@@ -89,6 +87,9 @@
                 </div> <br/>
                    
             </div> <br> 
+                    <center>
+                        {{$featured_product->links()}}
+                    </center>
                     <center> <b style="color:#5cb85c;"> Connect with us: </b> </center>            
             <div class="row"> 
                 <div class="col-lg-8 col-lg-offset-4 col-xs-8 col-xs-offset-3">

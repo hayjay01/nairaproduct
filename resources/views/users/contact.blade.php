@@ -24,7 +24,7 @@
 		                <br />
 		                <br />
 		                <h3 style="line-height:20%;"><i class="fa fa-envelope fa-1x" style="line-height:6%;color:#339966"></i> Mail us at: </h3>
-		                <p style="margin-top:6%;line-height:35%"> <a href="mailto:info@nairaproducts.ng">info@nairaproducts.ng</a></p>
+		                <p style="margin-top:6%;line-height:35%"> <a href="mailto:info@nairaproducts.ng">hello@nairaproducts.ng</a></p>
 		                <br />
 		                <br />
 
